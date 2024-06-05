@@ -1,0 +1,38 @@
+<body>
+    <%- include('../components/header', { titulo: "Cadastro de patrimônio" }) %>
+    <main>
+        <%- include('../components/message', { value: "" }) %>
+        <div class="center">
+            <form id="form">
+                <%- include('../components/input', {
+                    label: "Número no inventário:" , type: "text" , value: "" , id: "n_inventario" }) %>
+                <%- include('../components/input', {
+                    label: "Data da incorporação:" , type: "date" , value: "" , id: "dt_incorporacao" }) %>
+                <%- include('../components/input', {
+                    label: "Denominação do imobizado:" , type: "text" , value: "" , id: "denominacao_do_imobilizado" }) %>
+                <%- include('../components/input', {
+                    label: "Localização:" , type: "text" , value: "" , id: "localizacao" }) %>
+                <%- include('../components/input', {
+                    label: "Ambiente:" , type: "text" , value: "" , id: "ambiente" }) %>
+                <%- include('../components/input', {
+                    label: "Código:" , type: "text" , value: "" , id: "codigo" }) %>
+                <%- include('../components/input', {
+                    label: "Defeito:" , type: "text" , value: "" , id: "defeito" }) %>
+    
+                <div class="center">
+                    <button>Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+
+<script>
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        sendFetch("/patrimonio/criar", "POST", form, "/listar");
+    });
+</script>

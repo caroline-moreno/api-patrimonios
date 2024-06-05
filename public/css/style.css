@@ -1,0 +1,134 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+}
+
+h1 {
+    margin: 22px 0px;
+}
+
+h2 {
+    margin: 0px;
+    margin-bottom: 19px;
+}
+
+.titulo {
+    margin-top: 25px;
+}
+
+p,
+button,
+a,
+input,
+td,
+th {
+    font-size: 16px;
+}
+
+hr {
+    margin: 19px 0px;
+}
+
+#carregando p {
+    margin: 0;
+}
+#typeSearch {
+    width: 50vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#typeSearch button {
+    margin-top: 0;
+    margin-bottom: 19px;
+    border: 0px;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+#textSearch, #numberSearch {
+    margin: 0px;
+}
+
+.boxSearch {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 !important;
+    
+}
+
+.boxSearch div {
+    margin: 0px 10px;
+}
+
+#numberSearch input[type="number"] {
+    width: 15vh;
+}
+
+button {
+    background-color: rgb(204, 204, 204);
+    border: solid 1px;
+}
+
+input[type="file"]::file-selector-button {
+    border: solid 1px;
+    background-color: rgb(204, 204, 204);
+}
+
+.input {
+    width: 50vh;
+}
+
+a {
+    color: rgb(255, 115, 0);
+    text-decoration: none;
+}
+
+button a {
+    color: black;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttons button {
+    margin: 0 7px;
+}
+
+label p {
+    font-weight: bolder;
+    margin: 3px 0px;
+}
+
+table {
+    padding: 0 !important;
+}
+
+table {
+    border-collapse: collapse;
+    text-indent: initial;
+    border-spacing: 0px !important;
+}
+
+thead {
+    background-color: rgb(204, 204, 204);
+}
+
+td,
+th {
+    border: solid 1px;
+    padding: 5px 10px;
+}
+
+#sobre {
+    font-size: 18px !important;
+    margin: 30px 300px;
+}
+
+footer {
+    margin: 40px 0px 10px 0px;
+}

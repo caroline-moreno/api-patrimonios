@@ -1,0 +1,90 @@
+<div class="center">
+    <div id="typeSearch">
+        <div><button id="texto" style="font-weight: bolder;" onclick="textSearchOption()">Procurar por texto</button>
+        </div>
+        <div><button id="numero" onclick="numberSearchOption()">Procurar por número</button></div>
+    </div>
+</div>
+
+<div class="center">
+    <div class="boxSearch">
+        <div id="textSearch">
+            <div class="boxSearch">
+                <%- include('../components/search', { placeholder: "Procurar patrimônios" }) %>
+            </div>
+        </div>
+
+        <div id="numberSearch" style="display: none;">
+            <div class="boxSearch">
+                <div>
+                    <label>
+                        <p>Número inicial:</p>
+                    </label>
+                    <input type="number" id="numeroInicial">
+                </div>
+
+                <div>
+                    <label>
+                        <p>Número final:</p>
+                    </label>
+                    <input type="number" id="numeroFinal">
+                </div>
+
+                <div>
+                    <button id="buscar" onclick="searchNumber()">Buscar</button>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <button id="boxSearchButton">
+                <%= text %>
+            </button>
+        </div>
+
+        <%- include('../components/carregamento') %>
+    </div>
+</div><br>
+
+<script>
+    function textSearchOption() {
+        resetTable();
+        numberSearch.style.display = "none";
+        texto.style.fontWeight = "bolder";
+        numero.style.fontWeight = "normal";
+        textSearch.style.display = "block";
+    }
+
+    function numberSearchOption() {
+        resetTable();
+        textSearch.style.display = "none";
+        numero.style.fontWeight = "bolder";
+        texto.style.fontWeight = "normal";
+        numberSearch.style.display = "block";
+    }
+
+    function resetTable() {
+        let table = document.getElementsByTagName("tbody")[0];
+        const linhas = table.getElementsByTagName("tr");
+
+        Object.values(linhas).forEach((linha) => {
+            linha.style.display = "";
+        });
+    }
+
+    function searchNumber() {
+        let numeroInicial = document.getElementById("numeroInicial");
+        let numeroFinal = document.getElementById("numeroFinal");
+        let table = document.getElementsByTagName("tbody")[0];
+        const linhas = table.getElementsByTagName("tr");
+
+        Object.values(linhas).forEach((linha) => {
+            let numero = Number(linha.children[0].innerHTML);
+            if (numero < numeroInicial.value || numero > numeroFinal.value) {
+                linha.style.display = "none";
+            } else {
+                linha.style.display = "";
+            };
+        });
+    }
+</script>

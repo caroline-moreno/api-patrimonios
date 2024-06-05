@@ -1,0 +1,22 @@
+<header>
+    <%- include('./titulo', { titulo: "Gerenciador de Patrimônios" }) %>
+
+    <div class="center">
+        <div class="buttons">
+            <button><a href="/listar">Listagem de Patrimônios</a></button>
+            <button><a href="/escanear">Escanear Patrimônio</a></button>
+            <button><a href="/importar">Importar Patrimônios</a></button>
+            <button><a href="/exportar">Exportar Patrimônios</a></button>
+            <button><a href="/imprimir">Imprimir Patrimônios</a></button>
+            <button><a href="/registros">Registros</a></button>
+            <button><a href="/sair">Terminar sessão</a></button>
+        </div>
+    </div>
+
+    <hr>
+    
+</header>
+
+<div class="center">
+    <h2><%= titulo %></h2>
+</div>

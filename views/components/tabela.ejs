@@ -1,0 +1,40 @@
+<% if (head) { tabela.forEach((e)=> { %>
+    <% Object.keys(e).forEach((key) => {
+        if (!Object.keys(head).includes(key)) {
+        if (e[key]) { delete e[key]; }
+         }
+    }) %>
+<% }) %>
+
+<div class="center">
+    <table>
+        <thead>
+            <tr>
+                <% Object.values(head).forEach((e)=> { %>
+                    <th>
+                        <%= e %>
+                    </th>
+                <% }); %>
+            </tr>
+        </thead>
+        <tbody>
+            <% tabela.forEach((e)=> { %>
+                <tr>
+                    <% Object.values(e).forEach((i)=> { %>
+                        <% if (typeof(i) == "object") { %>
+                            <td>
+                                <a href="<%= i['href'] %>"><%= i["text"] %></a>
+                            </td>
+                        <% } else { %>
+                            <td>
+                                <%= i %>
+                            </td>
+                        <% } %>
+                    <% }) %>
+                </tr>
+                <% }); %>
+        </tbody>
+    </table>
+</div>
+
+<% } %>

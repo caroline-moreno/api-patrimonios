@@ -1,0 +1,24 @@
+use db_patrimonios;
+
+insert into registros (nome, email, senha) values 
+("Mateus dos Santos Pereira", "mateus@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla"),
+("João Sebastião", "sebastiao@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla"),
+("José Geraldo", "geraldo@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla"),
+("Pedro de Alcântara", "pedro@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla"),
+("João Carlos Leopoldo", "joao@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla"),
+("Francisco Xavier de Paula", "francisco@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla"),
+("Leocádio Miguel", "leocadio@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla"),
+("Gabriel Rafael Gonzaga", "rafael@gmail.com", "$2a$08$Vsny3Jpp.4qtUlFCrgc0Du7FpB8jkXZPSJyIntldllAiyBFxLHHla");
+
+insert into patrimonios (
+    n_inventario, dt_incorporacao, denominacao_do_imobilizado, localizacao, ambiente, codigo
+) values 
+(1038852, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1"),
+(1038853, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112",	"Sala de aula",	"E1"),
+(1038854, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1"),
+(1038855, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1"),
+(1038856, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1"),
+(1038857, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1"),
+(1038858, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1"),
+(1038859, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1"),
+(1038860, "2012-05-22", "CADEIRA GIRATÓRIA S/BRAÇOS ROYAL/TIRMIS", "20930112", "Sala de aula",	"E1");

@@ -1,0 +1,48 @@
+<div class="center">
+    <div id="confirmacao" style="display: none;">
+        <div class="center">
+            <p>
+                <%= label %>
+            </p>
+        </div>
+        <div class="center">
+            <div class="buttons">
+                <button id="cancelar" onclick="closeDelete()">Cancelar</button>
+                <button id="confirmar" onclick="confirmDelete()">Confirmar</button>
+            </div>
+        </div>
+    </div>
+    <button id="deletar" onclick="openDelete()">Deletar</button>
+</div>
+
+<script>
+    const deletarButton = document.getElementById("deletar");
+    const confirmacao = document.getElementById("confirmacao");
+    const cancelar = document.getElementById("cancelar");
+    const confirmar = document.getElementById("confirmar");
+    const route = "<%= route %>";
+    const redirect = "<%= redirect %>";
+
+    async function deletar() {
+        const response = await fetch(route, { method: 'DELETE' });
+        const json = await response.json();
+        console.log(json)
+        redirecionar(json, redirect);
+    }
+
+    function openDelete() {
+        deletarButton.style.display = "none";
+        confirmacao.style.display = "block";
+    }
+
+    function closeDelete() {
+        confirmacao.style.display = "none";
+        deletarButton.style.display = "block";
+    }
+
+    function confirmDelete() {
+        closeDelete();
+
+        deletar();
+    }
+</script>

@@ -1,0 +1,35 @@
+<body>
+    <main>
+        <div class="titulo">
+            <%- include('../components/titulo', { titulo: "Validação" }) %>
+        </div>
+
+        <div class="center">
+            <a href="/registrar">Registrar</a>
+        </div><br>
+        <%- include('../components/message', { value: "" }) %>
+
+        <div class="center">
+            <form id="form">
+                <%- include('../components/input', {
+                    label: "Nif:" , type: "text" , value: "" , id: "nif" }) %>
+                <%- include('../components/input', {
+                    label: "Senha:" , type: "password" , value: "" , id: "senha" }) %>
+
+                <div class="center">
+                    <button>Validar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+
+<script>
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        sendFetch("/registro/validar", "POST", form, "/listar");
+    });
+</script>

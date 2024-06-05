@@ -1,0 +1,39 @@
+<body>
+    <%- include('../components/header', { titulo: "Importação de patrimônio" }) %>
+
+    <main>
+        <%- include('../components/message', { value: "" }) %>
+        <div class="center">
+            <form id="form">
+                <input type="file" id="arquivo" accept=".xlsx" required><br><br>
+                <div class="center">
+                    <button id="button">Importar</button>
+                </div>
+            </form>
+        </div>
+        <%- include('../components/carregamento') %>
+    </main>
+</body>
+
+<script>
+    const form = document.getElementById("form");
+    const carregando = document.getElementById("carregando");
+    const message = document.getElementById("message");
+
+    async function importar(file) {
+        const response = await fetch(`/patrimonio/importar`, { method: "POST", body: file });
+        const json = await response.json();
+        
+        finalizarCarregamento(form.button, carregando);
+
+        redirecionar(json, "/listar");
+    }
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        iniciarCarregamento(form.button, carregando);
+
+        importar(form.arquivo.files[0]);
+    });
+</script>

@@ -1,0 +1,37 @@
+<body>
+    <%- include('../components/header', { titulo: `Atualizar patrimônio n° ${body.id}` }) %>
+        <main>
+            <%- include('../components/message', { value: "" }) %>
+
+            <div class="center">
+                <form id="form"></form>
+            </div><br>
+            
+            <%- include('../components/boxDelete', { label: "Confirme a exclusão do patrimônio:" , route:
+                `/patrimonio/deletar/${body.id}`, redirect: "/listar" }) %>
+        </main>
+</body>
+
+<script src="/public/js/scripts.js"></script>
+
+<script>
+    const id = '<%= body.id %>';
+    const form = document.getElementById("form")
+    const head = {
+        dt_incorporacao: { label: "Data da incorporação:", tag: { name: "input", type: "date" } },
+        denominacao_do_imobilizado: { label: "Denominação do imobizado:", tag: { name: "input", type: "text" } },
+        localizacao: { label: "Localização:", tag: { name: "input", type: "text" } },
+        ambiente: { label: "Ambiente:", tag: { name: "input", type: "text" } },
+        codigo: { label: "Código:", tag: { name: "input", type: "text" } },
+        defeito: { label: "Defeito:", tag: { name: "input", type: "text" } },
+        qrcode: { label: "Código QR:", tag: { name: "img" } }
+    };
+
+    getDataForInputs(`/patrimonio/buscar/${id}`, head);
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        sendFetch(`/patrimonio/atualizar/${id}`, "PUT", form, "/listar");
+    });
+</script>

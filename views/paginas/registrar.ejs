@@ -1,0 +1,51 @@
+<body>
+    <% if (body.valido == true) { %>
+        <%- include('../components/header', { titulo: "Registro" }) %>
+    <% } else { %>
+
+        <main>
+            <div class="titulo">
+                <%- include('../components/titulo', { titulo: "Registro" }) %>
+            </div>
+
+            <div class="center">
+                <a href="/validar">Validar</a>
+            </div><br>
+    <% } %>
+        <%- include('../components/message', { value: "" }) %>
+                <div class="center">
+                    <form id="form">
+                        <%- include('../components/input', { label: "Nome:" , type: "text" , value: "" ,
+                            id: "nome" }) %>
+                        <%- include('../components/input', { label: "Nif:" , type: "text" , value: ""
+                            , id: "nif" }) %>
+                        <%- include('../components/input', { label: "E-mail:" , type: "text" , value: ""
+                            , id: "email" }) %>
+                        <%- include('../components/input', { label: "Senha:" , type: "password" ,
+                            value: "" , id: "senha" }) %>
+                        <%- include('../components/input', { label: "Confirmar senha:" ,
+                            type: "password" , value: "" , id: "confirmarSenha" }) %>
+
+                        <div class="center">
+                            <button>Registrar</button>
+                        </div>
+                    </form>
+                </div>
+        </main>
+</body>
+
+<script>
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        sendFetch(
+            "/registro/criar", "POST", form, "/registros",
+            {
+                data: ["senha", "confirmarSenha"],
+                message: "Erro. A senha não confere."
+            }
+        );
+    });
+</script>

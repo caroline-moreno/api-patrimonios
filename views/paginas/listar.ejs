@@ -1,0 +1,37 @@
+<body>
+    <%- include('../components/header', { titulo: "Listagem de patrimônios", tipo: body.tipo }) %>
+
+    <main>
+        <% if (body.tabela["status"] == 200) { %>
+        
+            <%- include('../components/search', { placeholder: "Procurar patrimônio" }) %><br>
+
+            <div class="center">
+                <button><a href="/cadastrar">Cadastrar Patrimônio</a></button>
+            </div><br>
+
+        <%- include('../components/tabela', {
+            head: {
+                n_inventario: "Número de inventário",
+                denominacao_do_imobilizado: "Denominação",
+                localizacao: "Localização",
+                ambiente: "Ambiente",
+                codigo: "Código",
+                atualizacao: "Atualização"
+            }, tabela: body.tabela["data"]
+        }) %>
+
+        <% } else { %>
+            
+            <div class="center">
+                <p><%= body.tabela["message"] %></p>
+            </div><br><br>
+
+            <div class="center">
+                <button><a href="/cadastrar">Cadastrar Patrimônio</a></button>
+            </div>
+
+        <% } %>
+    </main>
+</body>
+
